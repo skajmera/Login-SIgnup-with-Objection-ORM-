@@ -53,13 +53,13 @@ module.exports = class UserService {
 
         if (!logg[0]) {
 
-            return ({ "user": "email or password not correct" })
+            return ({ "user": "email not correct" })
         }
 
         const pass = await bcrypt.compare(loged.password, logg[0].password)
         console.log(pass);
         if (pass) {
             return ({ "user": "successful login" })
-        }
+        }return ({"message":'incorrect password'})
     }
 }
